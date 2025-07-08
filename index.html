@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scoreboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f4f4f4;
+    }
+    .scoreboard {
+      background-color: white;
+      border-radius: 10px;
+      padding: 40px;
+      width: 300px;
+      margin: 100px auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .team {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .score {
+      font-size: 48px;
+      font-weight: bold;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="scoreboard">
+  <div class="team">Team A: <span id="scoreA" class="score">0</span></div>
+  <div class="team">Team B: <span id="scoreB" class="score">0</span></div>
+  
+  <button onclick="updateScore('A', 1)">+1 Team A</button>
+  <button onclick="updateScore('B', 1)">+1 Team B</button>
+  <button onclick="resetScore()">Reset</button>
+</div>
+
+<script>
+  let scoreA = 0;
+  let scoreB = 0;
+
+  function updateScore(team, points) {
+    if (team === 'A') {
+      scoreA += points;
+      document.getElementById('scoreA').textContent = scoreA;
+    } else {
+      scoreB += points;
+      document.getElementById('scoreB').textContent = scoreB;
+    }
+  }
+
+  function resetScore() {
+    scoreA = 0;
+    scoreB = 0;
+    document.getElementById('scoreA').textContent = 0;
+    document.getElementById('scoreB').textContent = 0;
+  }
+</script>
+
+</body>
+</html>
